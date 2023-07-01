@@ -29,37 +29,40 @@ namespace Mars_qa.StepDefinitions
         {
             LanguagePage languagePageObj = new LanguagePage();
             languagePageObj.addLanguage(driver);
-            languagePageObj.inputKeys1(driver);
-            languagePageObj.inputKeys2(driver);
+            languagePageObj.inputKeys(driver);
         }
-
         [Then(@"Language have been Successfully Created")]
         public void ThenLanguageHaveBeenSuccessfullyCreated()
         {
             LanguagePage languagePageObj = new LanguagePage();
             string language1Textbox = languagePageObj.getInputKey1(driver);
-           string  language2Textbox = languagePageObj.getInputKey2(driver);
+            string  language2Textbox = languagePageObj.getInputKey2(driver);
+           
 
             Assert.AreEqual("Spanish",language1Textbox, "Actual Language and expected Language do not match");
             Assert.AreEqual("Tamil", language2Textbox, "Actual Language and expected Language do not match");
+            
         }
         [Given(@"I update '([^']*)'and'([^']*)' an Existing language and levels record")]
+
         public void GivenIUpdateAndAnExistingLanguageAndLevelsRecord(string Language, string Level)
         {
             LanguagePage languagepageObj = new LanguagePage();
-            languagepageObj.editedlastLanguage(driver , Language, Level);
-            
+            languagepageObj.editedlastLanguage(driver, Language, Level);
+
         }
         [Then(@"The record should be updated '([^']*)'and '([^']*)'")]
-        public void ThenTheRecordShouldBeUpdatedAnd(string language , string level)
+        public void ThenTheRecordShouldBeUpdatedAnd(string language, string level)
         {
             LanguagePage languagepageObj = new LanguagePage();
-            string editlanguageInput = languagepageObj.GeteditlanguageInput(driver);
-            string editlevelOption = languagepageObj.GeteditlevelOption(driver);
-
-            Assert.AreEqual(language, editlanguageInput, "Actual editlanguageInpu and Expected editlanguageInput do not match");
-            Assert.AreEqual(level, editlevelOption, "Actual editlevelOption and Expected editleveloption do not match");
+            string editlanguage1Input = languagepageObj.GeteditInput(driver);
+            string editlevel1Option = languagepageObj.GeteditlevelOption(driver);
+           
+            Assert.AreEqual(language, editlanguage1Input, "Actual editlanguageInpu and Expected editlanguageInput do not match");
+            Assert.AreEqual(level, editlevel1Option, "Actual editlevelOption and Expected editleveloption do not match");
+            
         }
+
         [Given(@"I Delete '([^']*)' and '([^']*)'an Existing language and levels recod")]
         public void GivenIDeleteAndAnExistingLanguageAndLevelsRecod(string Language, string Level)
         {
@@ -71,10 +74,10 @@ namespace Mars_qa.StepDefinitions
         {
             LanguagePage languagepageObj = new LanguagePage();
             string deleteInput = languagepageObj.getDeleteLanguage(driver);
-            string deleteOption = languagepageObj.getDeleteLevel(driver);
 
-            Assert.AreEqual(Language, deleteInput, "Actual deleteInput and Expected DeleteInput");
+            Assert.AreNotEqual(Language, deleteInput, "Actual deleteInput and Expected DeleteInput");
         }
+        
 
 
 

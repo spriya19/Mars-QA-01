@@ -76,12 +76,12 @@ namespace Mars_qa.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Adding skills to  the User Profile")]
-        public void AddingSkillsToTheUserProfile()
+        [NUnit.Framework.DescriptionAttribute("01 -  Adding skills to  the User Profile")]
+        public void _01_AddingSkillsToTheUserProfile()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding skills to  the User Profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 -  Adding skills to  the User Profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -106,15 +106,18 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Edit an Existing Skill and Level with valid details")]
-        [NUnit.Framework.TestCaseAttribute("API", "Intermediate", null)]
-        public void EditAnExistingSkillAndLevelWithValidDetails(string skill, string level, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("02 - Edit an Existing Skill and Level with valid details")]
+        [NUnit.Framework.TestCaseAttribute("C#", "Intermediate", null)]
+        [NUnit.Framework.TestCaseAttribute("Selenium", "Expert", null)]
+        [NUnit.Framework.TestCaseAttribute("Aa2234", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("12!@#$", "Intermediate", null)]
+        public void _02_EditAnExistingSkillAndLevelWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an Existing Skill and Level with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 - Edit an Existing Skill and Level with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 17
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -139,16 +142,16 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Delete an Existing Skill and Level with valid Details")]
+        [NUnit.Framework.DescriptionAttribute("03 - Delete an Existing Skill and Level with valid Details")]
         [NUnit.Framework.TestCaseAttribute("API", "Intermediate", null)]
-        public void DeleteAnExistingSkillAndLevelWithValidDetails(string skill, string level, string[] exampleTags)
+        public void _03_DeleteAnExistingSkillAndLevelWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete an Existing Skill and Level with valid Details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 26
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 - Delete an Existing Skill and Level with valid Details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 30
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -158,13 +161,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 27
+#line 31
        testRunner.Given("User has successfully logged into the Mar_qa application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 28
+#line 32
     testRunner.When(string.Format("I delete \'{0}\' and \'{1}\' an Existing skills and levels", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 29
+#line 33
     testRunner.Then(string.Format("The record should be deleted \'{0}\' and \'{1}\'", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

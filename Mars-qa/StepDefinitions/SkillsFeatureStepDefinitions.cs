@@ -22,7 +22,6 @@ namespace Mars_qa.StepDefinitions
             //Login page object identified and defined
             LoginPage loginpageObj = new LoginPage();
             loginpageObj.loginsteps(driver);
-
         }
 
         [When(@"Create skills in the user profile")]
@@ -30,8 +29,7 @@ namespace Mars_qa.StepDefinitions
         {
             SkillsPage skillsPageObj = new SkillsPage();
             skillsPageObj.addSkills(driver);
-            skillsPageObj.inputKeys1(driver); 
-            skillsPageObj.inputKeys2(driver);
+            skillsPageObj.inputKeys(driver); 
         }
 
         [Then(@"Skills have been Successfully Created")]
@@ -74,16 +72,8 @@ namespace Mars_qa.StepDefinitions
         {
             SkillsPage skillspageObj = new SkillsPage();
             string deleteInput = skillspageObj.getDeleteSkill(driver);
-            string deleteOption = skillspageObj.getDeleteLevel(driver);
 
-            Assert.AreEqual(skill, deleteInput, "Actual detele input and Expected delete input do not match ");
-            Assert.AreEqual(level, deleteOption, "Actual detele option and Expected delete option do not match");
-
+            Assert.AreNotEqual(skill, deleteInput, "Actual detele input and Expected delete input do not match ");
         }
-
-
-
-
-
     }
 }

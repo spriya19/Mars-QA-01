@@ -24,32 +24,30 @@ namespace Mars_qa.Page
             addnewButton.Click();
 
         }
-        public void inputKeys1(IWebDriver driver)
+        public void inputKeys(IWebDriver driver)
         {
-            IWebElement languageTextbox = driver.FindElement(By.Name("name"));
-            languageTextbox.SendKeys("API");
+            IWebElement skill1Textbox = driver.FindElement(By.Name("name"));
+            skill1Textbox.SendKeys("API");
             Thread.Sleep(2000);
-            IWebElement languageLevelDropdown = driver.FindElement(By.Name("level"));
-            languageLevelDropdown.SendKeys("Intermediate");
-            IWebElement addButton = driver.FindElement(By.XPath("//input[@value='Add']"));
-            addButton.Click();
+            IWebElement Level1Dropdown = driver.FindElement(By.Name("level"));
+            Level1Dropdown.SendKeys("Intermediate");
+            IWebElement add1Button = driver.FindElement(By.XPath("//input[@value='Add']"));
+            add1Button.Click();
             Thread.Sleep(3000);
-        }
-        public void inputKeys2(IWebDriver driver)
-        {
             Wait.WaitToBeExists(driver, "XPath", "//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']", 7);
             //create new record
             IWebElement addnewButton = driver.FindElement(By.XPath("//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']"));
             addnewButton.Click();
-            IWebElement languageTextbox = driver.FindElement(By.Name("name"));
-            languageTextbox.SendKeys("Java");
+            IWebElement skill2Textbox = driver.FindElement(By.Name("name"));
+            skill2Textbox.SendKeys("Java");
             Thread.Sleep(2000);
-            IWebElement languageLevelDropdown = driver.FindElement(By.Name("level"));
-            languageLevelDropdown.SendKeys("Beginner");
-            IWebElement addButton = driver.FindElement(By.XPath("//input[@value='Add']"));
-            addButton.Click();
+            IWebElement Level2Dropdown = driver.FindElement(By.Name("level"));
+            Level2Dropdown.SendKeys("Beginner");
+            IWebElement add2Button = driver.FindElement(By.XPath("//input[@value='Add']"));
+            add2Button.Click();
             Thread.Sleep(3000);
         }
+
         public string getInputKey1(IWebDriver driver)
         {
             IWebElement skill1Textbox = driver.FindElement(By.XPath("//td[normalize-space()='API']"));
@@ -83,12 +81,12 @@ namespace Mars_qa.Page
         }
         public string GeteditSkillInput(IWebDriver driver)
         {
-            IWebElement editSkillInput = driver.FindElement(By.XPath("//td[normalize-space()='API']"));
+            IWebElement editSkillInput = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[1]"));
             return editSkillInput.Text;
         }
         public string GeteditlevelOption(IWebDriver driver)
         {
-            IWebElement editlevelOption = driver.FindElement(By.XPath("//td[normalize-space()='Intermediate']"));
+            IWebElement editlevelOption = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[2]"));
             return editlevelOption.Text;
         }
         public void deleteSkill(IWebDriver driver)
@@ -103,14 +101,9 @@ namespace Mars_qa.Page
         }
         public string getDeleteSkill(IWebDriver driver)
         {
-            IWebElement deletedInput = driver.FindElement(By.XPath("//td[normalize-space()='API']"));
+            IWebElement deletedInput = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
             return deletedInput.Text;
         }
-        public string getDeleteLevel(IWebDriver driver)
-        {
-            IWebElement deleteOption = driver.FindElement(By.XPath("//td[normalize-space()='Intermediate']"));
-            return deleteOption.Text;
-        }
-
+      
     }
 }

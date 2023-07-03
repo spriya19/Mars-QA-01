@@ -20,8 +20,8 @@ namespace Mars_qa.Feature
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("LanguageFeature")]
-    public partial class LanguageFeatureFeature
+    [NUnit.Framework.DescriptionAttribute("LanguageandSkillFeature")]
+    public partial class LanguageandSkillFeatureFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -35,7 +35,7 @@ namespace Mars_qa.Feature
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "LanguageFeature", "As I login my Mars-QA application\r\nI Would like to create my profile language det" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "LanguageandSkillFeature", "As I login my Mars-QA application\r\nI Would like to create my profile language det" +
                     "ails\r\nSo I can Add my language created successfully.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -108,7 +108,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("02 - Edit Existing language and level with valid details")]
         [NUnit.Framework.TestCaseAttribute("French", "Conversational", null)]
         [NUnit.Framework.TestCaseAttribute("Arabic", "Basic", null)]
-        [NUnit.Framework.TestCaseAttribute("Haa@##", "Fluent", null)]
+        [NUnit.Framework.TestCaseAttribute("Hh@#(74)", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("Korean", "Conversational", null)]
         [NUnit.Framework.TestCaseAttribute("Tamil", "Fluent", null)]
         public void _02_EditExistingLanguageAndLevelWithValidDetails(string language, string level, string[] exampleTags)
@@ -143,7 +143,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("03  - Delete an Existing language and level")]
-        [NUnit.Framework.TestCaseAttribute("Korean", "Conversational", null)]
+        [NUnit.Framework.TestCaseAttribute("Tamil", "Fluent", null)]
         public void _03_DeleteAnExistingLanguageAndLevel(string language, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

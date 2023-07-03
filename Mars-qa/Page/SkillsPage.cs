@@ -46,6 +46,65 @@ namespace Mars_qa.Page
             IWebElement add2Button = driver.FindElement(By.XPath("//input[@value='Add']"));
             add2Button.Click();
             Thread.Sleep(3000);
+            Wait.WaitToBeExists(driver, "XPath", "//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']", 7);
+            //create new record
+            IWebElement addnew1Button = driver.FindElement(By.XPath("//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']"));
+            addnew1Button.Click();
+            IWebElement skill3Textbox = driver.FindElement(By.Name("name"));
+            skill3Textbox.SendKeys("Python");
+            Thread.Sleep(2000);
+            IWebElement Level3Dropdown = driver.FindElement(By.Name("level"));
+            Level3Dropdown.SendKeys("Beginner");
+            IWebElement add3Button = driver.FindElement(By.XPath("//input[@value='Add']"));
+            add3Button.Click();
+            Thread.Sleep(3000);
+            Wait.WaitToBeExists(driver, "XPath", "//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']", 7);
+            //create new record
+            IWebElement addnew2Button = driver.FindElement(By.XPath("//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']"));
+            addnew2Button.Click();
+            IWebElement skill4Textbox = driver.FindElement(By.Name("name"));
+            skill4Textbox.SendKeys("123!@#");
+            Thread.Sleep(2000);
+            IWebElement Level4Dropdown = driver.FindElement(By.Name("level"));
+            Level4Dropdown.SendKeys("Expert");
+            IWebElement add4Button = driver.FindElement(By.XPath("//input[@value='Add']"));
+            add4Button.Click();
+            Thread.Sleep(3000);
+            Wait.WaitToBeExists(driver, "XPath", "//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']", 7);
+            //create new record
+            IWebElement addnew3Button = driver.FindElement(By.XPath("//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']"));
+            addnew3Button.Click();
+            IWebElement skill5Textbox = driver.FindElement(By.Name("name"));
+            skill5Textbox.SendKeys("C++");
+            Thread.Sleep(2000);
+            IWebElement Level5Dropdown = driver.FindElement(By.Name("level"));
+            Level5Dropdown.SendKeys("Beginner");
+            IWebElement add5Button = driver.FindElement(By.XPath("//input[@value='Add']"));
+            add5Button.Click();
+            Thread.Sleep(3000);
+            Wait.WaitToBeExists(driver, "XPath", "//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']", 7);
+            //create new record
+            IWebElement addnew4Button = driver.FindElement(By.XPath("//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']"));
+            addnew4Button.Click();
+            IWebElement skill6Textbox = driver.FindElement(By.Name("name"));
+            skill6Textbox.SendKeys("QWERTY");
+            Thread.Sleep(2000);
+            IWebElement Level6Dropdown = driver.FindElement(By.Name("level"));
+            Level6Dropdown.SendKeys("Intermediate");
+            IWebElement add6Button = driver.FindElement(By.XPath("//input[@value='Add']"));
+            add6Button.Click();
+            Thread.Sleep(3000); Wait.WaitToBeExists(driver, "XPath", "//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']", 7);
+            //create new record
+            IWebElement addnew5Button = driver.FindElement(By.XPath("//th[text()='Skill']//following-sibling::th[@class='right aligned']/div[text()='Add New']"));
+            addnew5Button.Click();
+            IWebElement skill7Textbox = driver.FindElement(By.Name("name"));
+            skill7Textbox.SendKeys("Postman");
+            Thread.Sleep(2000);
+            IWebElement Level7Dropdown = driver.FindElement(By.Name("level"));
+            Level7Dropdown.SendKeys("Beginner");
+            IWebElement add7Button = driver.FindElement(By.XPath("//input[@value='Add']"));
+            add7Button.Click();
+            Thread.Sleep(3000);
         }
 
         public string getInputKey1(IWebDriver driver)
@@ -58,6 +117,31 @@ namespace Mars_qa.Page
         {
             IWebElement skill2Textbox = driver.FindElement(By.XPath("//td[normalize-space()='Java']"));
             return skill2Textbox.Text;
+        }
+        public string getInputKey3(IWebDriver driver)
+        {
+            IWebElement skill3Textbox = driver.FindElement(By.XPath("//td[normalize-space()='Python']"));
+            return skill3Textbox.Text;
+        }
+        public string getInputKey4(IWebDriver driver)
+        {
+            IWebElement skill4Textbox = driver.FindElement(By.XPath("//td[normalize-space()='123!@#']"));
+            return skill4Textbox.Text;
+        }
+        public string getInputKey5(IWebDriver driver)
+        {
+            IWebElement skill5Textbox = driver.FindElement(By.XPath("//td[normalize-space()='C++']"));
+            return skill5Textbox.Text;
+        }
+        public string getInputKey6(IWebDriver driver)
+        {
+            IWebElement skill6Textbox = driver.FindElement(By.XPath("//td[normalize-space()='QWERTY']"));
+            return skill6Textbox.Text;
+        }
+        public string getInputKey7(IWebDriver driver)
+        {
+            IWebElement skill7Textbox = driver.FindElement(By.XPath("//td[normalize-space()='Postman']"));
+            return skill7Textbox.Text;
         }
         public void editSkillInput(IWebDriver driver, string skill, string level)
         {
@@ -101,9 +185,15 @@ namespace Mars_qa.Page
         }
         public string getDeleteSkill(IWebDriver driver)
         {
-            IWebElement deletedInput = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
+            IWebElement deletedInput = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[1]"));
             return deletedInput.Text;
         }
-      
+        public string getDeleteLevel(IWebDriver driver)
+        {
+            IWebElement deletedLevel = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[2]"));
+            return deletedLevel.Text;
+        }
+
+
     }
 }

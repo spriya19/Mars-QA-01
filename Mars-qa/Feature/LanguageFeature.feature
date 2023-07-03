@@ -1,4 +1,4 @@
-﻿Feature: LanguageFeature
+﻿Feature: LanguageandSkillFeature
 As I login my Mars-QA application
 I Would like to create my profile language details
 So I can Add my language created successfully.
@@ -20,7 +20,7 @@ Examples:
 | Language | Level          |
 | French   | Conversational |
 | Arabic   | Basic          |
-| Haa@##   | Fluent         |
+|  Hh@#(74)| Fluent         |
 | Korean   | Conversational |
 | Tamil    | Fluent         |
 
@@ -32,10 +32,10 @@ Scenario Outline:03  - Delete an Existing language and level
 
 
 Examples: 
-| Language | Level         |
-|  Korean  | Conversational|
+| Language | Level  |
+| Tamil    | Fluent |
 
-
+ 
 
 
 

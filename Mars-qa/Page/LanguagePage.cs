@@ -41,6 +41,31 @@ namespace Mars_qa.Page
             IWebElement add2Button = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
             add2Button.Click();
             Thread.Sleep(2000);
+            Wait.WaitToBeExists(driver, "XPath", "//th[text()='Language']//following-sibling::th[@class='right aligned']/div[text()='Add New']", 7);
+            //create new record
+            IWebElement addnew3Button = driver.FindElement(By.XPath("//th[text()='Language']//following-sibling::th[@class='right aligned']/div[text()='Add New']"));
+            addnew3Button.Click();
+            Thread.Sleep(2000);
+            IWebElement language3Textbox = driver.FindElement(By.Name("name"));
+            language3Textbox.SendKeys("Malayalam");
+            IWebElement language3LevelDropdown = driver.FindElement(By.Name("level"));
+            language3LevelDropdown.SendKeys("Basic");
+            IWebElement add3Button = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
+            add3Button.Click();
+            Thread.Sleep(2000);
+            Wait.WaitToBeExists(driver, "XPath", "//th[text()='Language']//following-sibling::th[@class='right aligned']/div[text()='Add New']", 7);
+            //create new record
+            IWebElement addnew4Button = driver.FindElement(By.XPath("//th[text()='Language']//following-sibling::th[@class='right aligned']/div[text()='Add New']"));
+            addnew4Button.Click();
+            Thread.Sleep(2000);
+            IWebElement language4Textbox = driver.FindElement(By.Name("name"));
+            language4Textbox.SendKeys("Hindi");
+            IWebElement language4LevelDropdown = driver.FindElement(By.Name("level"));
+            language4LevelDropdown.SendKeys("Basic");
+            IWebElement add4Button = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
+            add4Button.Click();
+            Thread.Sleep(2000);
+
         }
         public string getInputKey1(IWebDriver driver) 
         {
@@ -54,6 +79,20 @@ namespace Mars_qa.Page
             return language2Textbox.Text;
 
         }
+        public string getInputKey3(IWebDriver driver)
+        {
+            IWebElement language3Textbox = driver.FindElement(By.XPath("//td[normalize-space()='Malayalam']"));
+            return language3Textbox.Text;
+
+        }
+        public string getInputKey4(IWebDriver driver)
+        {
+            IWebElement language4Textbox = driver.FindElement(By.XPath("//td[normalize-space()='Hindi']"));
+            return language4Textbox.Text;
+
+        }
+
+
         public void editedlastLanguage(IWebDriver driver, string language ,string level)
         {
             //Click the edit Icon
@@ -81,7 +120,7 @@ namespace Mars_qa.Page
             return editlevel1Option.Text;
         }
         
-        public void deleteLanguage(IWebDriver driver)
+        public void deleteLanguage(IWebDriver driver , string Language,string level)
         {
             IWebElement deleteIcon = driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/span[2]/i[1]"));
             deleteIcon.Click();

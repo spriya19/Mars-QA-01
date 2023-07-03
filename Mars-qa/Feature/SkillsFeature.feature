@@ -25,6 +25,7 @@ Examples:
 | Selenium | Expert       |
 | Aa2234   | Beginner     |
 | 12!@#$   | Intermediate |
+| @@**!!   | Beginner     |
 
 
 Scenario Outline:03 - Delete an Existing Skill and Level with valid Details
@@ -34,6 +35,7 @@ Scenario Outline:03 - Delete an Existing Skill and Level with valid Details
 
 Examples: 
 | Skill | Level        |
-| API   | Intermediate |
+| @@**!! | Beginner     |
+
 
 

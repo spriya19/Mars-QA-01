@@ -111,6 +111,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("Selenium", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("Aa2234", "Beginner", null)]
         [NUnit.Framework.TestCaseAttribute("12!@#$", "Intermediate", null)]
+        [NUnit.Framework.TestCaseAttribute("@@**!!", "Beginner", null)]
         public void _02_EditAnExistingSkillAndLevelWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -143,7 +144,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("03 - Delete an Existing Skill and Level with valid Details")]
-        [NUnit.Framework.TestCaseAttribute("API", "Intermediate", null)]
+        [NUnit.Framework.TestCaseAttribute("@@**!!", "Beginner", null)]
         public void _03_DeleteAnExistingSkillAndLevelWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -151,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 - Delete an Existing Skill and Level with valid Details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 30
+#line 31
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -161,13 +162,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 31
+#line 32
        testRunner.Given("User has successfully logged into the Mar_qa application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 32
+#line 33
     testRunner.When(string.Format("I delete \'{0}\' and \'{1}\' an Existing skills and levels", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 33
+#line 34
     testRunner.Then(string.Format("The record should be deleted \'{0}\' and \'{1}\'", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

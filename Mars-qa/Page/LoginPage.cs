@@ -1,4 +1,5 @@
 ﻿using Mars_qa.Utilities;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,33 @@ namespace Mars_qa.Page
 {
     public class LoginPage : CommonDriver
     {
-        public void loginsteps(IWebDriver driver)
+         public void navigateSteps()
+         {
+             //Launch portal
+             driver.Navigate().GoToUrl("http://localhost:5000");
+             driver.Manage().Window.Maximize();
+         }
+        public void loginSteps() 
         {
-            //Launch portal
-            driver.Navigate().GoToUrl("http://localhost:5000");
-            driver.Manage().Window.Maximize();
+           
 
             //sign in Valid Credential
+
             IWebElement signinButton = driver.FindElement(By.XPath("//*[@id=\"home\"]/div/div/div[1]/div/a"));
             signinButton.Click();
-            IWebElement emailaddressTextbox = driver.FindElement(By.Name("email"));
-            emailaddressTextbox.SendKeys("spriyak86@gmail.com");
+            try
+
+            {
+                IWebElement emailAddressTextbox = driver.FindElement(By.Name("email"));
+                emailAddressTextbox.SendKeys("spriyak86@gmail.com");
+            }
+
+            catch (Exception ex)
+
+            {
+                Assert.Fail("Home page didn't load", ex);
+            }
+
             IWebElement passwordTextbox = driver.FindElement(By.Name("password"));
             passwordTextbox.SendKeys("121212");
             IWebElement remembermeCheckbox = driver.FindElement(By.Name("rememberDetails"));
@@ -28,6 +45,9 @@ namespace Mars_qa.Page
             IWebElement loginButton = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
             loginButton.Click();
             Thread.Sleep(2000);
+            IWebElement validLogin = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/div[1]/div[2]/div/span"));
+            
         }
+
     }
 }

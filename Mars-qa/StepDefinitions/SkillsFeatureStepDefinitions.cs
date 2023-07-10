@@ -1,91 +1,80 @@
 using Mars_qa.Page;
 using Mars_qa.Utilities;
+using MarsQASpecFlowProject.Pages;
 using NUnit.Framework;
-using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
+using System;
 using TechTalk.SpecFlow;
 
 namespace Mars_qa.StepDefinitions
 {
     [Binding]
-    public class SkillsFeatureStepDefinitions :CommonDriver
-
+    public class SkillsFeatureStepDefinitions:CommonDriver
     {
-        [Given(@"User has successfully logged into the Mar_qa application")]
-        public void GivenUserHasSuccessfullyLoggedIntoTheMar_QaApplication()
+        LoginPage loginPageObj;
+        SkillPage skillPageObj;
+        public SkillsFeatureStepDefinitions()
         {
-            // Open Chrome Browser
-            driver = new ChromeDriver();
-
-            //Login page object identified and defined
-            LoginPage loginpageObj = new LoginPage();
-            loginpageObj.loginsteps(driver);
+            loginPageObj = new LoginPage();
+            skillPageObj = new SkillPage();
         }
 
-        [When(@"Create skills in the user profile")]
-        public void WhenCreateSkillsInTheUserProfile()
+        [Given(@"User successfullly logged into the Mar_qa Project")]
+        public void GivenUserSuccessfulllyLoggedIntoTheMar_QaProject()
         {
-            SkillsPage skillsPageObj = new SkillsPage();
-            skillsPageObj.addSkills(driver);
-            skillsPageObj.inputKeys(driver); 
+            loginPageObj.navigateSteps();
+            loginPageObj.loginSteps();
+
         }
 
-        [Then(@"Skills have been Successfully Created")]
-        public void ThenSkillsHaveBeenSuccessfullyCreated()
+        [When(@"Create a Skills into user profile '([^']*)' and '([^']*)'")]
+        public void WhenCreateASkillsIntoUserProfileAnd(string skill, string skilllevel)
         {
-            SkillsPage skillspageObj = new SkillsPage();
-            string skill1Textbox = skillspageObj.getInputKey1(driver);
-            string skill2Textbox = skillspageObj.getInputKey2(driver);
-            string skill3Textbox = skillspageObj.getInputKey3(driver);
-            string skill4Textbox = skillspageObj.getInputKey4(driver);
-            string skill5Textbox = skillspageObj.getInputKey5(driver);
-            string skill6Textbox = skillspageObj.getInputKey6(driver);
-            string skill7Textbox = skillspageObj.getInputKey7(driver);
+            skillPageObj.selectTab();
+            skillPageObj.addNewBtn();
+            skillPageObj.fillTextField(skill);
+            skillPageObj.selectValue(skilllevel);
+            skillPageObj.levelAddBtn();
 
-            Assert.AreEqual("API", skill1Textbox, "Actual skill1Textbox and Expected skill1Textbox do not match");
-            Assert.AreEqual("Java", skill2Textbox, "Actual skill2Textbox and Expected skill2Textbox do not match");
-            Assert.AreEqual("Python", skill3Textbox, "Actual skill2Textbox and Expected skill2Textbox do not match");
-            Assert.AreEqual("123!@#", skill4Textbox, "Actual skill2Textbox and Expected skill2Textbox do not match");
-            Assert.AreEqual("C++", skill5Textbox, "Actual skill2Textbox and Expected skill2Textbox do not match");
-            Assert.AreEqual("QWERTY", skill6Textbox, "Actual skill2Textbox and Expected skill2Textbox do not match");
-            Assert.AreEqual("Postman", skill7Textbox, "Actual skill2Textbox and Expected skill2Textbox do not match");
         }
-        [When(@"I update '([^']*)' and '([^']*)' anExisting skills and levels")]
+
+        [Then(@"The new skill created '([^']*)' and '([^']*)' Successfully Created")]
+        public void ThenTheNewSkillCreatedAndSuccessfullyCreated(string skill, string skillLevel)
+        {
+            IWebElement addedMsg = driver.FindElement(By.XPath("//div[contains(text(),'has been added to your skills')]"));
+
+            Assert.IsTrue(addedMsg.Text.Contains(skill + " has been added to your skills"));
+
+        }
+        [When(@"I update '([^']*)' and '([^']*)' an Existing skills and levels")]
         public void WhenIUpdateAndAnExistingSkillsAndLevels(string skill, string level)
         {
-            SkillsPage skillPageObj = new SkillsPage();
-            skillPageObj. editSkillInput(driver, skill, level);
+            skillPageObj.updateSkill(skill, level);
 
         }
         [Then(@"The record should be updated '([^']*)' and '([^']*)'")]
-        
         public void ThenTheRecordShouldBeUpdatedAnd(string skill, string level)
         {
-           SkillsPage skillpageObj= new SkillsPage();
-            string editSkillInput = skillpageObj.GeteditSkillInput(driver);
-            string editlevelOption = skillpageObj.GeteditlevelOption(driver);
+            string updatedSkill = skillPageObj.getVerifyUpdateSkill();
+            string updatedLevel = skillPageObj.getVerifyUpdateLevel();
+            Assert.AreEqual(skill, updatedSkill, "Actual skill and expected skill do not match");
+            Assert.AreEqual(level, updatedLevel, "Actual level and expected level do not match");
+        }
+        [When(@"I delete '([^']*)' and '([^']*)' an Existing skill and level")]
+        public void WhenIDeleteAndAnExistingSkillAndLevel(string skill, string level)
+        {
+            skillPageObj.deleteSkill(skill, level);
+        }
+        [Then(@"The Existing record should be deleted '([^']*)' and '([^']*)'")]
+        public void ThenTheExistingRecordShouldBeDeletedAnd(string skill, string level)
+        {
+            string deleteSkill = skillPageObj.getVerifyDeleteSkill();
+            string deleteLevel = skillPageObj.getVerifyDeleteLevel();
+            Assert.AreNotEqual(skill, deleteSkill, "Actual skill and expected skill do not match");
+            Assert.AreNotEqual(level, deleteLevel, "Actual level and expected level do not match");
+        }
 
-            Assert.AreEqual(skill, editSkillInput, "Actual editskillinput and Expected editskillInput do not match");
-            Assert.AreEqual(level, editlevelOption, "Actual editlevelOption and Expected editleveloption do not match");
-        }
-        [When(@"I delete '([^']*)' and '([^']*)' an Existing skills and levels")]
-        public void WhenIDeleteAndAnExistingSkillsAndLevels(string skill, string level)
-        {
-            SkillsPage skillspageObj = new SkillsPage();
-            skillspageObj.deleteSkill(driver);
-        }
-        [Then(@"The record should be deleted '([^']*)' and '([^']*)'")]
-        public void ThenTheRecordShouldBeDeletedAnd(string skill, string level)
-        {
-            SkillsPage skillspageObj = new SkillsPage();
-            string deleteInput = skillspageObj.getDeleteSkill(driver);
 
-            Assert.AreEqual(skill, deleteInput, "Actual detele input and Expected delete input do not match ");
-        }
-        [AfterScenario]
-        public void CloseTestRun()
-        {
-            driver.Quit();
-        }
-        
+
     }
 }

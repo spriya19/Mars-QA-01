@@ -36,8 +36,7 @@ namespace Mars_qa.Feature
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "SkillsFeature", "As I login my Mars-QA application\r\nI Would like to create my profile Skills detai" +
-                    "ls\r\nSo I can Add my skills created successfully.\r\n\r\n\r\n\r\n\r\nSkills Added to profie" +
-                    "", ProgrammingLanguage.CSharp, featureTags);
+                    "ls\r\nSo I can Add my skills created successfully.\r\n short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,13 +75,23 @@ namespace Mars_qa.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("01 -  Adding skills to  the User Profile")]
-        public void _01_AddingSkillsToTheUserProfile()
+        [NUnit.Framework.DescriptionAttribute("01 - Adding a language to User Profile")]
+        [NUnit.Framework.TestCaseAttribute("Manual Testing", "Expert", null)]
+        [NUnit.Framework.TestCaseAttribute("C#", "Intermediate", null)]
+        [NUnit.Framework.TestCaseAttribute("Java", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("Python", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("API", "Intermediate", null)]
+        [NUnit.Framework.TestCaseAttribute("Selenium", "Expert", null)]
+        [NUnit.Framework.TestCaseAttribute("SQL", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("123!@#", "Intermediate", null)]
+        public void _01_AddingALanguageToUserProfile(string skill, string skilllLevel, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 -  Adding skills to  the User Profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 11
+            argumentsOfScenario.Add("skill", skill);
+            argumentsOfScenario.Add("skilllLevel", skilllLevel);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 - Adding a language to User Profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -92,14 +101,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 10
+ testRunner.Given("User successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 11
+ testRunner.When(string.Format("Create a Skills into user profile \'{0}\' and \'{1}\'", skill, skilllLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
 #line 12
- testRunner.Given("User has successfully logged into the Mar_qa application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 13
- testRunner.When("Create skills in the user profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 14
- testRunner.Then("Skills have been Successfully Created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("The new skill created \'{0}\' and \'{1}\' Successfully Created", skill, skilllLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -107,11 +116,13 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02 - Edit an Existing Skill and Level with valid details")]
-        [NUnit.Framework.TestCaseAttribute("C#", "Intermediate", null)]
-        [NUnit.Framework.TestCaseAttribute("Selenium", "Expert", null)]
-        [NUnit.Framework.TestCaseAttribute("Aa2234", "Beginner", null)]
-        [NUnit.Framework.TestCaseAttribute("12!@#$", "Intermediate", null)]
-        [NUnit.Framework.TestCaseAttribute("@@**!!", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("qwerty", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("!@$#$%", "Intermediate", null)]
+        [NUnit.Framework.TestCaseAttribute("C++", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("Postman", "Expert", null)]
+        [NUnit.Framework.TestCaseAttribute("Specflow", "Intermediate", null)]
+        [NUnit.Framework.TestCaseAttribute("ASD@#$!!!(87)", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("Automation", "Expert", null)]
         public void _02_EditAnExistingSkillAndLevelWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -119,7 +130,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 - Edit an Existing Skill and Level with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 17
+#line 25
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -129,13 +140,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 18
-        testRunner.Given("User has successfully logged into the Mar_qa application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 26
+        testRunner.Given("User successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 19
-  testRunner.When(string.Format("I update \'{0}\' and \'{1}\' anExisting skills and levels", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 27
+  testRunner.When(string.Format("I update \'{0}\' and \'{1}\' an Existing skills and levels", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 28
   testRunner.Then(string.Format("The record should be updated \'{0}\' and \'{1}\'", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -144,7 +155,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("03 - Delete an Existing Skill and Level with valid Details")]
-        [NUnit.Framework.TestCaseAttribute("@@**!!", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("Automation", "Expert", null)]
         public void _03_DeleteAnExistingSkillAndLevelWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -152,7 +163,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 - Delete an Existing Skill and Level with valid Details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 31
+#line 40
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -162,14 +173,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 32
-       testRunner.Given("User has successfully logged into the Mar_qa application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 41
+       testRunner.Given("User successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 33
-    testRunner.When(string.Format("I delete \'{0}\' and \'{1}\' an Existing skills and levels", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+    testRunner.When(string.Format("I delete \'{0}\' and \'{1}\' an Existing skill and level", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 34
-    testRunner.Then(string.Format("The record should be deleted \'{0}\' and \'{1}\'", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 43
+    testRunner.Then(string.Format("The Existing record should be deleted \'{0}\' and \'{1}\'", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

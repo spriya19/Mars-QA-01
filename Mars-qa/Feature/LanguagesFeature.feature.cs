@@ -20,22 +20,22 @@ namespace Mars_qa.Feature
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("LanguageandSkillFeature")]
-    public partial class LanguageandSkillFeatureFeature
+    [NUnit.Framework.DescriptionAttribute("LanguagesFeature")]
+    public partial class LanguagesFeatureFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "LanguageFeature.feature"
+#line 1 "LanguagesFeature.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "LanguageandSkillFeature", "As I login my Mars-QA application\r\nI Would like to create my profile language det" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "LanguagesFeature", "As I login my Mars-QA application\r\nI Would like to create my profile language det" +
                     "ails\r\nSo I can Add my language created successfully.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -76,10 +76,16 @@ namespace Mars_qa.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("01 - Adding a language to User Profile")]
-        public void _01_AddingALanguageToUserProfile()
+        [NUnit.Framework.TestCaseAttribute("Tamil", "Native/Bilingual", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Basic", null)]
+        [NUnit.Framework.TestCaseAttribute("123@#$", "Basic", null)]
+        [NUnit.Framework.TestCaseAttribute("Hindi", "Conversational", null)]
+        public void _01_AddingALanguageToUserProfile(string language, string languageLevel, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Language", language);
+            argumentsOfScenario.Add("LanguageLevel", languageLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 - Adding a language to User Profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
@@ -92,20 +98,20 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 8
- testRunner.Given("User has successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
- testRunner.When("Create a language into user profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("Create a language into user profile \'{0}\' and \'{1}\'", language, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.Then("Language have been Successfully Created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("The new record created \'{0}\' and \'{1}\' Successfully Created", language, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("02 - Edit Existing language and level with valid details")]
+        [NUnit.Framework.DescriptionAttribute("02 -  Edit Existing language and level with valid details")]
         [NUnit.Framework.TestCaseAttribute("French", "Conversational", null)]
         [NUnit.Framework.TestCaseAttribute("Arabic", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Hh@#(74)", "Fluent", null)]
@@ -117,8 +123,8 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 - Edit Existing language and level with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 -  Edit Existing language and level with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -128,13 +134,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 15
-           testRunner.Given("User has successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+          testRunner.Given("I successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 16
-     testRunner.And(string.Format("I update \'{0}\'and\'{1}\' an Existing language and levels record", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+    testRunner.When(string.Format("I update \'{0}\'and\'{1}\' an Existing language and levels record", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 17
+#line 22
      testRunner.Then(string.Format("The record should be updated \'{0}\'and \'{1}\'", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -142,16 +148,16 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03  - Delete an Existing language and level")]
+        [NUnit.Framework.DescriptionAttribute("03 - Delete an Existing language and level with valid details")]
         [NUnit.Framework.TestCaseAttribute("Tamil", "Fluent", null)]
-        public void _03_DeleteAnExistingLanguageAndLevel(string language, string level, string[] exampleTags)
+        public void _03_DeleteAnExistingLanguageAndLevelWithValidDetails(string language, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03  - Delete an Existing language and level", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 28
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 - Delete an Existing language and level with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 32
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -161,14 +167,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 29
-           testRunner.Given("User has successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
+testRunner.Given("I successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 30
-     testRunner.And(string.Format("I Delete \'{0}\' and \'{1}\'an Existing language and levels recod", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+testRunner.When(string.Format("I delete \'{0}\' and \'{1}\' an Existing language and levels Record", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 31
-     testRunner.Then(string.Format("The recors should be Deleted \'{0}\' and \'{1}\'", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 35
+testRunner.Then(string.Format("The record should be deleted \'<language>\' and \'{0}\'", level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

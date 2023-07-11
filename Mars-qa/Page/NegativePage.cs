@@ -1,20 +1,31 @@
-﻿
-using OpenQA.Selenium;
+﻿using Mars_qa.Utilities;
 using OpenQA.Selenium.Support.UI;
-using Mars_qa.Utilities;
+using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TechTalk.SpecFlow.Configuration.AppConfig;
+using NUnit.Framework;
 
-namespace MarsQASpecFlowProject.Pages
+namespace Mars_qa.Page
 {
-    public class LanguagePage : CommonDriver
+    public class NegativePage : CommonDriver
     {
         private static IWebElement editIcon => driver.FindElement(By.XPath("//td[@class='right aligned']//i[@class='outline write icon']"));
         private static IWebElement getLanguageTextbox => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
         private static IWebElement getLevelTextbox => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select"));
         private static IWebElement updateButton => driver.FindElement(By.XPath("//input[@value='Update']"));
-        private static IWebElement updatedLanguage => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[1]"));
-        private static IWebElement updatedLevel => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[2]"));
-        private static IWebElement deletedLanguage => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
-        private static IWebElement deletedLevel => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
+        private static IWebElement updatedLanguage => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+        private static IWebElement updatedLevel => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
+        private static IWebElement editSkillIcon => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[1]/i"));
+        private static IWebElement skillTextbox => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
+        private static IWebElement LevelTextbox => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select"));
+        private static IWebElement skillUpdateButton => driver.FindElement(By.XPath("//input[@value='Update']"));
+        private static IWebElement skillUpdated => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[1]"));
+        private static IWebElement skillUpdatedLevel => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[2]"));
+
         public void selectTab()
         {
             Thread.Sleep(1000);
@@ -36,7 +47,7 @@ namespace MarsQASpecFlowProject.Pages
 
             Thread.Sleep(500);
 
-            if (lstTrElem.Count == 5)
+            if (lstTrElem.Count == 6)
             {
                 for (int i = lstTrElem.Count; i >= 1; i--)
                 {
@@ -58,14 +69,14 @@ namespace MarsQASpecFlowProject.Pages
 
             }
         }
-        public void fillTextField( String language)
+        public void fillTextField(String language)
         {
             Thread.Sleep(3000);
             driver.FindElement(By.XPath("//input[@name='name']")).SendKeys(language);
 
         }
 
-        public void selectValue( String languagelevel)
+        public void selectValue(String languagelevel)
         {
             Thread.Sleep(1000);
             IWebElement languageLevel = driver.FindElement(By.Name("level"));
@@ -75,11 +86,8 @@ namespace MarsQASpecFlowProject.Pages
         }
         public void levelAddBtn()
         {
-
             driver.FindElement(By.XPath("//input[@class='ui teal button']")).Click();
             Thread.Sleep(1000);
-
-
         }
         public void updateLanguage(string language, string level)
         {
@@ -89,9 +97,23 @@ namespace MarsQASpecFlowProject.Pages
             getLanguageTextbox.SendKeys(language);
             getLevelTextbox.Click();
             getLevelTextbox.SendKeys(level);
+            Thread.Sleep(2000);
             updateButton.Click();
+            Thread.Sleep(2000);
+            IWebElement messageBox = driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+            Thread.Sleep(2000);
+            //get the text of the message element
+            string actualMessage = messageBox.Text;
+            Console.WriteLine(actualMessage);
 
+            /*//Verify the expected message text
+            string expectedMessage1 = language + " has been updated to your languages";
+            string expectedMessage2 = "Please enter language and level";
+            string expectedMessage3 = "This language is already added to your language list.";
+
+            Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3));*/
         }
+    
         public string getVerifyUpdateLanguage()
         {
             Thread.Sleep(2000);
@@ -102,30 +124,7 @@ namespace MarsQASpecFlowProject.Pages
             Thread.Sleep(2000);
             return updatedLevel.Text;
         }
-        public void deleteLanguage(string language, string level)
-        {
-            var languageDeleteIcon = driver.FindElement(By.XPath($"//tbody[tr[td[text()='{language}'] and td[text()='{level}']]]//i[@class='remove icon']"));
-            // Find and click the delete icon in the row
-            languageDeleteIcon.Click();
-            Thread.Sleep(2000);
-        }
-        public string getVerifyDeleteLanguage()
-        {
-            Thread.Sleep(2000);
-            return deletedLanguage.Text;
-        }
-        public string getVerifyDeleteLevel()
-        {
-            Thread.Sleep(2000);
-            return deletedLevel.Text;
-        }
+        
+
     }
 }
-
-
-
-
-
-
-
-

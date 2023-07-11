@@ -3,10 +3,10 @@
 As I login my Mars-QA application
 I Would like to create my profile Skills details
 So I can Add my skills created successfully.
- short summary of the feature
 
 
-Scenario:01 - Adding a language to User Profile 
+
+Scenario:01 - Adding a skill to User Profile 
 	Given  User successfullly logged into the Mar_qa Project
 	When Create a Skills into user profile '<skill>' and '<skilllLevel>'
 	Then The new skill created '<skill>' and '<skilllLevel>' Successfully Created

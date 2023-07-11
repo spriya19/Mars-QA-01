@@ -36,7 +36,7 @@ namespace Mars_qa.Feature
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "SkillsFeature", "As I login my Mars-QA application\r\nI Would like to create my profile Skills detai" +
-                    "ls\r\nSo I can Add my skills created successfully.\r\n short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
+                    "ls\r\nSo I can Add my skills created successfully.", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,7 +75,7 @@ namespace Mars_qa.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("01 - Adding a language to User Profile")]
+        [NUnit.Framework.DescriptionAttribute("01 - Adding a skill to User Profile")]
         [NUnit.Framework.TestCaseAttribute("Manual Testing", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("C#", "Intermediate", null)]
         [NUnit.Framework.TestCaseAttribute("Java", "Beginner", null)]
@@ -84,13 +84,13 @@ namespace Mars_qa.Feature
         [NUnit.Framework.TestCaseAttribute("Selenium", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("SQL", "Beginner", null)]
         [NUnit.Framework.TestCaseAttribute("123!@#", "Intermediate", null)]
-        public void _01_AddingALanguageToUserProfile(string skill, string skilllLevel, string[] exampleTags)
+        public void _01_AddingASkillToUserProfile(string skill, string skilllLevel, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("skill", skill);
             argumentsOfScenario.Add("skilllLevel", skilllLevel);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 - Adding a language to User Profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 - Adding a skill to User Profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

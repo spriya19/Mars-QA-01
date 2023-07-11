@@ -107,7 +107,7 @@ namespace Mars_qa.Page
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//div[@class='ui top attached tabular menu']//a[@data-tab='second']")).Click();
             Thread.Sleep(2000);
-            // Find all rows in the table                     
+            // Find all rows in the table                                          
             IReadOnlyCollection<IWebElement> rows = driver.FindElements(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr"));
             Thread.Sleep(2000);
 
@@ -131,7 +131,7 @@ namespace Mars_qa.Page
                     break;
                 }
             }
-           
+
         }
         public string getVerifyDeleteSkill()
         {

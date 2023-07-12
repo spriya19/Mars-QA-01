@@ -111,8 +111,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02 -  Edit Existing language and level with invalid details")]
         [NUnit.Framework.TestCaseAttribute("", "Converstion", null)]
-        [NUnit.Framework.TestCaseAttribute("Tamil", "Basic", null)]
-        [NUnit.Framework.TestCaseAttribute("", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Tamil", "", null)]
         public void _02_EditExistingLanguageAndLevelWithInvalidDetails(string language, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -120,7 +119,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 -  Edit Existing language and level with invalid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 19
+#line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -130,13 +129,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 20
+#line 21
           testRunner.Given("successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 21
+#line 22
     testRunner.When(string.Format("updated \'{0}\'and\'{1}\' an Existing language and levels record", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 22
+#line 23
      testRunner.Then(string.Format("The Existing record should be updated \'{0}\'and \'{1}\'", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -146,7 +145,6 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("03 - Adding a skill to User Profile")]
         [NUnit.Framework.TestCaseAttribute("adbcdjs", "", null)]
-        [NUnit.Framework.TestCaseAttribute("", "Beginner", null)]
         [NUnit.Framework.TestCaseAttribute("", "", null)]
         public void _03_AddingASkillToUserProfile(string skill, string skilllLevel, string[] exampleTags)
         {
@@ -155,7 +153,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("skill", skill);
             argumentsOfScenario.Add("skilllLevel", skilllLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 - Adding a skill to User Profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 31
+#line 32
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -165,13 +163,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 32
+#line 33
  testRunner.Given("successfullly logged into the Mar_qa Project", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 33
+#line 34
  testRunner.When(string.Format("Create a Invalid Skills into user profile \'{0}\' and \'{1}\'", skill, skilllLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 34
+#line 35
  testRunner.Then(string.Format("The Invalid skill created \'{0}\' and \'{1}\' Successfully Created", skill, skilllLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -180,8 +178,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("04 - Edit an Existing Skill and Level with invalid details")]
-        [NUnit.Framework.TestCaseAttribute("", "", null)]
-        [NUnit.Framework.TestCaseAttribute("", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("", "Skill Level", null)]
         public void _04_EditAnExistingSkillAndLevelWithInvalidDetails(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

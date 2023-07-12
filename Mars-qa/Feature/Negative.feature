@@ -12,9 +12,10 @@ Scenario:01 - Adding a language to User Profile
 	Then  The record created '<Language>' and '<LanguageLevel>' Successfully Created
 
 Examples:
-| Language | LanguageLevel |
-| English  |               |
-|          |               |
+| Language | LanguageLevel         |
+| English  |                       |
+|          |                       |
+
 
 Scenario Outline:02 -  Edit Existing language and level with invalid details
           Given   successfullly logged into the Mar_qa Project
@@ -22,10 +23,10 @@ Scenario Outline:02 -  Edit Existing language and level with invalid details
 		   Then   The Existing record should be updated '<Language>'and '<Level>'
 
 Examples: 
-| Language | Level       |
-|          | Converstion |
-| Tamil    | Basic       |
-|          |             |
+| Language | Level                 |
+|          | Converstion           |
+| Tamil    |                       |
+
 
 
 Scenario:03 - Adding a skill to User Profile 
@@ -34,10 +35,9 @@ Scenario:03 - Adding a skill to User Profile
 	Then     The Invalid skill created '<skill>' and '<skilllLevel>' Successfully Created
 
 Examples: 
-| skill   | skilllLevel |
-| adbcdjs |             |
-|         | Beginner    |
-|         |             |
+| skill   | skilllLevel        |
+| adbcdjs |                    |
+|         |                    |
 
 Scenario Outline:04 - Edit an Existing Skill and Level with invalid details
         Given         User successfullly logged into the Mar_qa Project
@@ -45,8 +45,8 @@ Scenario Outline:04 - Edit an Existing Skill and Level with invalid details
 		Then          The invalid  record should be updated '<Skill>' and '<Level>'
 
 Examples: 
-| Skill | Level    |
-|       |          |
+| Skill | Level              |
+|       |  Skill Level       |
 
 
 

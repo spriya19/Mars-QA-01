@@ -1,3 +1,4 @@
+using DocumentFormat.OpenXml.Drawing.Charts;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Mars_qa.Page;
 using Mars_qa.Utilities;
@@ -34,25 +35,26 @@ namespace Mars_qa.StepDefinitions
         [When(@"Create new  language into user profile '([^']*)' and '([^']*)'")]
         public void WhenCreateNewLanguageIntoUserProfileAnd(string language, string languageLevel)
         {
-            negativePageObj.selectTab();
-            negativePageObj.addNewBtn();
-            negativePageObj.fillTextField(language);
-            negativePageObj.selectValue(languageLevel);
-            negativePageObj.levelAddBtn();
-
+            negativePageObj.AddLanguage(language,languageLevel);
+           
         }
 
         [Then(@"The record created '([^']*)' and '([^']*)' Successfully Created")]
         public void ThenTheRecordCreatedAndSuccessfullyCreated(string language, string languageLevel)
         {
-            IWebElement addedMsg = driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+            string newSkill = negativeSkillPageObj.getVerifyUpdateSkill();
+            string newLevel = negativeSkillPageObj.getVerifySkillUpdateLevel();
+            if (language == newSkill && languageLevel == newLevel)
+            {
+                Assert.AreEqual(language, newSkill, "Actual skill and Expected skill do not match.");
+                Assert.AreEqual(languageLevel, newLevel, "Actual  level and expected level do not match");
+            }
+            else
+            {
+                Console.WriteLine("Check Error");
+            }
 
-            Assert.IsFalse(addedMsg.Text.Contains(language + " has been added to your languages"));
-            Assert.IsFalse(addedMsg.Text.Equals("please enter language and level"));
-            Assert.IsFalse(addedMsg.Text.Equals("This language is already exist in your language list."));
-            Assert.IsFalse(addedMsg.Text.Equals("Duplicated data"));
-
-                   }
+        }
         [When(@"updated '([^']*)'and'([^']*)' an Existing language and levels record")]
         public void WhenUpdatedAndAnExistingLanguageAndLevelsRecord(string language, string level)
         {

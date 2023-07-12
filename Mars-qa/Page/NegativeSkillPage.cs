@@ -43,8 +43,7 @@ namespace Mars_qa.Page
             {
                 for (int i = lstTrElem.Count; i >= 1; i--)
                 {
-                    driver.FindElement(By.XPath("/ html[1] / body[1] / div[1] / div[1] / section[2] / div[1] / div[1] / div[1] / div[3] / form[1] / div[2] / div[1] / div[2] / div[1] / table[1] / tbody[1] / tr[1] / td[3] / span[2] / i[1]")).Click();
-
+                    driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/span[2]/i[1]")).Click();
                     driver.Navigate().Refresh();
                     Thread.Sleep(3000);
                     Console.WriteLine("Record deleted " + i);
@@ -94,8 +93,8 @@ namespace Mars_qa.Page
             //get the text of the message element
             string actualMessage = messageBox.Text;
             Console.WriteLine(actualMessage);
-            /*//Verify the expected message text
-            string expectedMessage1 =skill + " has been updated to your languages";
+            //Verify the expected message text
+            /*string expectedMessage1 =skill + " has been updated to your languages";
             string expectedMessage2 = "Please enter language and level";
             string expectedMessage3 = "This language is already added to your language list.";
 
